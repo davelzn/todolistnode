@@ -11,7 +11,7 @@ const createMiddleware = () => {
                 })
                     .then((response) => response.json())
                     .then((json) => {
-                        resolve(json); 
+                        resolve(json);
                     })
             })
         },
@@ -20,7 +20,7 @@ const createMiddleware = () => {
                 fetch("/todo")
                     .then((response) => response.json())
                     .then((json) => {
-                        resolve(json);       
+                        resolve(json);
                     })
             })
         },
@@ -42,7 +42,7 @@ const createMiddleware = () => {
         delete: (id) => {
             return new Promise((resolve, reject) => {
                 fetch("/todo/" + id, {
-                    method: 'DELETE'                
+                    method: 'DELETE'
                 })
                     .then((response) => response.json())
                     .then((json) => {
@@ -94,20 +94,20 @@ const CBL = (middleware, list) => {
     let todos = [];
     const reload = () => {
         middleware.load()
-        .then((json) => {
-            todos = json.todos;
-            list.render(todos, completeTodo, deleteTodo);
-        })
+            .then((json) => {
+                todos = json.todos;
+                list.render(todos, completeTodo, deleteTodo);
+            })
     }
     const completeTodo = (id) => {
         const todo = todos.filter((todo) => todo.id === id)[0];
         middleware.put(todo)
             .then(() => reload());
     }
-    const deleteTodo =  (id) => {
+    const deleteTodo = (id) => {
         console.log("delete " + id);
         middleware.delete(id)
-        .then(() => reload());
+            .then(() => reload());
     }
     return {
         add: (task) => {
