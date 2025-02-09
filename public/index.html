@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TODO LIST Davide Liuzzo</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">Todo List</h1>
+        <div class="card">
+            <div class="row">
+                <input id="input" type="text" class="input-field" placeholder="Add a new task..." />
+                <button id="inputBtn" type="button" class="add-btn">Add</button>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Complete</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listTable">
+                        <tr>
+                            <td class="task">%TASK</td>
+                            <td><button id="COMPLETE_%ID" type="button" class="complete-btn">✔</button></td>
+                            <td><button id="DELETE_%ID" type="button" class="delete-btn">✖</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
