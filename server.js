@@ -14,7 +14,6 @@ const mysql = require('mysql2');
 const conf = JSON.parse(fs.readFileSync('conf.json'));
 const connection = mysql.createConnection(conf);
 
-
 const executeQuery = (sql) => {
     return new Promise((resolve, reject) => {
         connection.query(sql, function (err, result) {
